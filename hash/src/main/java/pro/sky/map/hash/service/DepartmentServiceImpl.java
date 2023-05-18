@@ -34,7 +34,7 @@ public class DepartmentServiceImpl implements DepartmentService {
         return employees.stream()
                 .filter(it -> Objects.equals(it.getDepartment(), departmentId))
                 .min(Comparator.comparing(Employee::getSalary))
-                .get();
+                .orElse(null);
     }
 
     @Override
